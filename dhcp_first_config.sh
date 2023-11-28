@@ -9,8 +9,13 @@ read -p "Ingrese la mascara de red : " netmask
 read -p "Ingrese la ip del router : " router
 read -p "Rango de la red? : " range
 
-text="\nsubnet $subnet netmask $netmask {\n\toption subnet-mask\t$netmask;\n\toption routers\
-\t\t$router;\n\trange\t\t$range;\n\toption domain-name-servers\t$router;\n}"
+text="
+subnet $subnet netmask $netmask {
+  option subnet-mask  $netmask;
+  option routers      $router;
+  range               $range;
+  option domain-name-servers $router;
+}"
 
 if [ -e "$archive" ]; then
     echo -e "$preconf" >> "$archive"
