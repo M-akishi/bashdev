@@ -10,7 +10,7 @@ read -p "Ingrese la ip del router : " router
 read -p "Rango de la red? : " range
 
 text="\nsubnet $subnet netmask $netmask {\n\toption subnet-mask\t$netmask;\n\toption routers\
-\t$router;\n\trange\t$range;\n\toption domain-name-servers\t$router}}"
+\t$router;\n\trange\t$range;\n\toption domain-name-servers\t$router\n}"
 
 if [ -e "$archive" ]; then
     echo -e "$preconf" >> "$archive"
