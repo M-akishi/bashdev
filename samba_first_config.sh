@@ -9,12 +9,12 @@ read -p "grupo de los que pueden acceder a la carpeta : " group
 
 folder="
 [$namefolder]
-comment = $comment
-path = $path
-public = yes
-writeable = yes
-write list = +$group
-browseable = yes"
+        comment = $comment
+        path = $path
+        public = yes
+        writeable = yes
+        write list = +$group
+        browseable = yes"
 
 if [ -e "$archive" ]; then
     echo -e "$folder" >> "$archive"
