@@ -11,9 +11,9 @@ read -p "Rango de la red? : " range
 
 text="
 subnet $subnet netmask $netmask {
-  option subnet-mask  $netmask;
-  option routers      $router;
-  range               $range;
+  option subnet-mask         $netmask;
+  option routers             $router;
+  range                      $range;
   option domain-name-servers $router;
 }"
 
