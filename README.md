@@ -1,2 +1,2 @@
 # bashdev
-simples shells
+simples shells for rhel
