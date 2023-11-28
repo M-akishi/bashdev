@@ -24,19 +24,19 @@ else
     exit
 fi
 
-read -p "ingrese usuario para permitir usar samba" user
+read -p "ingrese usuario para permitir usar samba : " user
 
-echo "smbpasswd -a $user"
+smbpasswd -a "$user"
 
 # encender y permitir samba
-echo "systemctl enable smb.service"
-echo "systemctl start smb.service"
+systemctl enable smb.service
+systemctl start smb.service
 
 #permisos varios
-echo "firewall-cmd --add-port=139/tcp --permanent"
-echo "firewall-cmd --add-port=445/tcp --permanent"
-echo "chcon -t samba_share_t $path/"
+firewall-cmd --add-port=139/tcp --permanent
+firewall-cmd --add-port=445/tcp --permanent
+chcon -t samba_share_t "$path"/
 
 # ultimo reinicio
-echo "systemctl stop smb.service"
-echo "systemctl start smb.service"
+systemctl stop smb.service
+systemctl start smb.service
