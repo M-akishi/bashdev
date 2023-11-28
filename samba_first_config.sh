@@ -40,3 +40,5 @@ chcon -t samba_share_t "$path"/
 # ultimo reinicio
 systemctl stop smb.service
 systemctl start smb.service
+
+echo "Primera configuracion creada exitosamente!!"
