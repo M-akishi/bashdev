@@ -27,6 +27,6 @@ if [ -e "$archive" ]; then
     chcon -t samba_share_t "$path"/
     echo "carpeta creada exitosamente"
 else
-    echo "Carpeta no encontrada, has instalado samba?"
+    echo "archivo de configuracion no encontrado, has instalado samba?"
     exit
 fi
