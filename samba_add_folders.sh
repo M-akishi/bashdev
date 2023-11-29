@@ -13,6 +13,11 @@ read -p "algun comentario para la carpeta? : " comment
 read -p "ubicacion de la carpeta desde la raiz : " path
 read -p "grupo de los que pueden acceder a la carpeta : " group
 
+if [ ! -e "$path" ]; then
+    echo "path no encontrado, crealo y vuelve despues!"
+    exit
+fi
+
 folder="
 [$namefolder]
 comment = $comment
