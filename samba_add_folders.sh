@@ -24,6 +24,7 @@ browseable = yes"
 
 if [ -e "$archive" ]; then
     echo -e "$folder" >> "$archive"
+    chcon -t samba_share_t "$path"/
     echo "carpeta creada exitosamente"
 else
     echo "Carpeta no encontrada, has instalado samba?"
