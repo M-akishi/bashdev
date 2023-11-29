@@ -41,6 +41,7 @@ systemctl start smb.service
 #permisos varios
 firewall-cmd --add-port=139/tcp --permanent
 firewall-cmd --add-port=445/tcp --permanent
+firewall-cmd --reload
 chcon -t samba_share_t "$path"/
 
 # ultimo reinicio
