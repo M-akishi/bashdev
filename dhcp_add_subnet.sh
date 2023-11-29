@@ -25,6 +25,6 @@ if [ -e "$archive" ]; then
     echo -e "$text" >> "$archive"
     echo "Subnet agregada exitosamente"
 else
-    echo "archivo de configuracion no existente, ha instalado el servidor?"
+    echo "archivo de configuracion no existente, has instalado el servidor dhcp?"
 fi
 
