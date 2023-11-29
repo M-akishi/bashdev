@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]; then
+    echo "Este script debe ejecutarse con privilegios de root."
+    exit 1
+fi
+
+
 archive="/etc/samba/smb.conf"
 
 read -p "ingrese el nombre de la carpeta : " namefolder

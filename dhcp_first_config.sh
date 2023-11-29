@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]; then
+    echo "Este script debe ejecutarse con privilegios de root."
+    exit 1
+fi
+
+
 archive="/etc/dhcp/dhcpd.conf"
 
 preconf="ddns-update-style interim;\ndefault-leade-time 600;\nmax-lease-time 7200;"
