@@ -7,7 +7,7 @@ fi
 
 read -p "Bienenido a configuracion total de servidor dhcp en distribuciones RHEL, desea continuar para instalar el servicio o agregar mas subnets? s/N : " confirmation
 
-if [ confirmation = "s" ]; then
+if [ confirmation == "s" ]; then
     echo "configurando.."
 else
     echo "saliendo del programa.."
