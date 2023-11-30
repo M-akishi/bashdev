@@ -37,8 +37,8 @@ dhcp_first_config(){
     }"
 
     if [ -e "$archive" ]; then
-        echo -e "$preconf" > "$archive"
-        echo -e "$text" >> "$archive"
+        echo -e "$preconf" >> "$archive"
+        echo -e "$text" > "$archive"
         echo "Primera configuracion creada exitosamente"
     else
         echo "archivo de configuracion no existente, ha instalado el servidor?"
