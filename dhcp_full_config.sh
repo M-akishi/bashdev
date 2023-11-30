@@ -70,7 +70,7 @@ dhcp_add_subnet(){
 }
 
 # Verificar si el servicio DHCP está instalado
-if command -v dnf list installed | grep -w 'dhcp-server'; then
+if command -v systemctl &> /dev/null && systemctl list-units --type=service --all | grep 'dhcpd'; then
     echo "El servidor DHCP (dhcpd) está instalado."
 
     # Verificar si el servicio DHCP está en ejecución
