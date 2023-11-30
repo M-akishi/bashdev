@@ -5,6 +5,16 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
+read -p "Bienenido a configuracion total de servidor dhcp en distribuciones RHEL\
+, desea continuar para instalar el servicio o agregar mas subnets? s/N" confirmation
+
+if [ confirmation = "s"]
+    echo "configurando.."
+else
+    echo "saliendo del programa.."
+    exit
+fi
+
 dhcp_setup(){
     yum install dhcp
 }
@@ -67,14 +77,17 @@ if command -v systemctl &> /dev/null && systemctl list-units --type=service --al
     # Verificar si el servicio DHCP está en ejecución
     if systemctl is-active --quiet dhcpd; then
         echo "El servidor DHCP (dhcpd) está en ejecución."
+        echo "agregando otra subnet..."
         dhcp_add_subnet
     else
         echo "¡Atención! El servidor DHCP (dhcpd) está instalado pero apagado."
+        echo "encendiendo servicio y agregando otra subnet"
         systemctl start dhcpd.service
         dhcp_add_subnet
     fi
 else
     echo "El servidor DHCP (dhcpd) no está instalado."
+    echo "instalando dhcp y creando primera configuracion"
     dhcp_setup
     dhcp_first_config
 fi
