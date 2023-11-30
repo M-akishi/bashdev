@@ -91,5 +91,6 @@ else
     dhcp_first_config
     systemctl enable dhcpd.service
     systemctl start dhcpd.service
+    echo "todo listo!!"
 fi
 
