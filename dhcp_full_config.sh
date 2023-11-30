@@ -15,7 +15,7 @@ else
 fi
 
 dhcp_setup(){
-    yum install dhcp
+    dnf install dhcp-server
 }
 
 dhcp_first_config(){
@@ -89,5 +89,7 @@ else
     echo "instalando dhcp y creando primera configuracion"
     dhcp_setup
     dhcp_first_config
+    systemctl enable dhcp.service
+    systemctl start dhcp.service
 fi
 
