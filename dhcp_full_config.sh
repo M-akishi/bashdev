@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if [ "$EUID" -ne 0 ]; then
     echo "Este script debe ejecutarse con privilegios de root."
     exit 1
