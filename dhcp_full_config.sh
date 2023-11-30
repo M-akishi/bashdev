@@ -6,14 +6,14 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Verificar si el servicio DHCP está instalado
-if command -v systemctl &> /dev/null && systemctl list-units --type=service | grep -q 'dhcpd'; then
+if command -v systemctl &> /dev/null && systemctl list-units --type=service --all | grep 'dhcpd'; then
     echo "El servidor DHCP (dhcpd) está instalado."
-    
+
     # Verificar si el servicio DHCP está en ejecución
     if systemctl is-active --quiet dhcpd; then
         echo "El servidor DHCP (dhcpd) está en ejecución."
     else
-        echo "El servidor DHCP (dhcpd) no está en ejecución."
+        echo "¡Atención! El servidor DHCP (dhcpd) está instalado pero apagado."
     fi
 else
     echo "El servidor DHCP (dhcpd) no está instalado."
