@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-read -p "Bienenido a configuracion total de servidor dhcp en distribuciones RHEL, desea continuar para instalar el servicio o agregar mas subnets? s/N : " confirmation
+read -p "Bienvenido a configuracion total de servidor dhcp en distribuciones RHEL, desea continuar para instalar el servicio o agregar mas subnets? s/N : " confirmation
 
 if [ "$confirmation" = "s" ]; then
     echo "configurando.."
@@ -70,7 +70,7 @@ dhcp_add_subnet(){
 }
 
 # Verificar si el servicio DHCP está instalado
-if [ command -v systemctl &> /dev/null && systemctl list-units --type=service --all | grep 'dhcpd' ]; then
+if command -v systemctl &> /dev/null && systemctl list-units --type=service --all | grep 'dhcpd'; then
     echo "El servidor DHCP (dhcpd) está instalado."
 
     # Verificar si el servicio DHCP está en ejecución
