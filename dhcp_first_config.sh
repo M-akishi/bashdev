@@ -8,7 +8,7 @@ fi
 
 archive="/etc/dhcp/dhcpd.conf"
 
-preconf="ddns-update-style interim;\ndefault-leade-time 600;\nmax-lease-time 7200;"
+preconf="ddns-update-style interim;\ndefault-lease-time 600;\nmax-lease-time 7200;"
 
 read -p "Ingrese la ip de la red : " subnet
 read -p "Ingrese la mascara de red : " netmask
