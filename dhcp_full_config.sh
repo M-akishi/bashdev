@@ -89,7 +89,7 @@ else
     echo "instalando dhcp y creando primera configuracion"
     dhcp_setup
     dhcp_first_config
-    systemctl enable dhcp.service
-    systemctl start dhcp.service
+    systemctl enable dhcpd.service
+    systemctl start dhcpd.service
 fi
 
