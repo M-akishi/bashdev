@@ -70,7 +70,8 @@ dhcp_add_subnet(){
 }
 
 # Verificar si el servicio DHCP está instalado
-if [ "$(command -v systemctl &> /dev/null && systemctl list-units --type=service --all | grep 'dhcpd' | awk '{print $2}')" = "loaded" ]; then
+if [ "$(command -v systemctl list-units --type=service --all | grep 'dhcpd' | awk '{print $2}')" = "loaded" ] || \
+[ "$(command -v systemctl list-units --type=service --all | grep 'dhcpd' | awk '{print $3}')" = "loaded" ]; then
     echo "El servidor DHCP (dhcpd) está instalado."
 
     # Verificar si el servicio DHCP está en ejecución
